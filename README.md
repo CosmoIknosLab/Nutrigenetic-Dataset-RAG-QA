@@ -7,7 +7,7 @@ This repository contains the dataset and supplementary materials for our paper t
 ### Data
 The `data` directory contains the processed dataset used for the implementation of the RAG methodology.
 
-- **RAG_LLM_nutrigentic_dataset.zip**: This zip file contains the dataset, semantified with MeSH ontology, used for RAG implementation of LLMs in the nutrigenetics domain.
+- `RAG_LLM_nutrigentic_dataset.zip`: This zip file contains the dataset, semantified with MeSH ontology, used for RAG implementation of LLMs in the nutrigenetics domain.
 
 #### Dataset Overview
 Our dataset is meticulously curated and processed to ensure its relevance and accuracy in the nutrigenetic domain. The dataset comprises extracted abstracts from PubMed, annotated with MeSH terms (Medical Subject Headings).
