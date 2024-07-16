@@ -49,25 +49,25 @@ The RAG framework aims to enhance Large Language Models (LLMs) by augmenting the
 
 #### Components:
 1. **Embeddings Model**:
-   - Use the General Text Embeddings (GTE) model to transform the source documents into vector representations. The GTE model is chosen for its superior performance in representing the semantic content of documents using multi-stage contrastive learning.
-   - Example:
-     ```python
-     from gte import GTE  # Hypothetical import for GTE
-     gte_model = GTE()
-     embeddings = gte_model.transform(documents)
-       ```
+    - Use the General Text Embeddings (GTE) model to transform the source documents into vector representations. The GTE model is chosen for its superior performance in representing the semantic content of documents using multi-stage contrastive learning.
+    - Example:
+      ```python
+      from gte import GTE  # Hypothetical import for GTE
+      gte_model = GTE()
+      embeddings = gte_model.transform(documents)
+        ```
 
 2. **Vector Database (VDB)**:
-   - Utilize Milvus for storing and retrieving the vector data. Milvus is selected for its optimized vector search functionality and supports integration via API.
-   - Example:
-     ```python
-     from pymilvus import connections, Collection
-     connections.connect(alias="default", host="localhost", port="19530")
+    - Utilize Milvus for storing and retrieving the vector data. Milvus is selected for its optimized vector search functionality and supports integration via API.
+    - Example:
+      ```python
+      from pymilvus import connections, Collection
+      connections.connect(alias="default", host="localhost", port="19530")
 
-     # Create a Milvus collection
-     collection = Collection("nutrigenetics_collection")
-     collection.load()
-     ```
+      # Create a Milvus collection
+      collection = Collection("nutrigenetics_collection")
+      collection.load()
+      ```
 
 3. **Query Processing**:
    - Process the query from the user by converting it into a vector using the same Embeddings Model. Retrieve relevant documents from the vector database based on this embedding.
