@@ -1,4 +1,5 @@
-# Retrieval-Augmented Generation (RAG) for Question-Answering in the Nutrigenetics Domain
+# A Dataset for Retrieval-Augmented Generation (RAG) for Question-Answering in the Nutrigenetics Domain
+
 
 This repository contains the dataset and supplementary materials for our paper titled "A Retrieval-Augmented Generation application for Question-Answering in Nutrigenetics Domain". The main focus is on the creation and utilization of a semantified dataset, employing MeSH ontology for implementing RAG in the domain of nutrigenetics.
 
