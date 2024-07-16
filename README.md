@@ -31,8 +31,6 @@ The dataset includes the following fields:
 - We collected 37,042 abstracts associated with specific MeSH terms.
 
 
-![Workflow](imgs/rag-framework.png, "Diagram showing the RAG Framework")
-
 ## Usage
 ### Loading the Dataset
 To load and explore the dataset, first unzip the `RAG_LLM_nutrigentic_dataset.zip` file. The dataset is stored in a CSV format, which can be easily loaded using pandas in Python.
@@ -45,29 +43,31 @@ df = pd.read_csv('data/RAG_LLM_nutrigentic_dataset.csv')
 ### Applying the RAG Framework
 This dataset is designed to be applied for advanced question-answering tasks within the nutrigenetics domain, allowing researchers and professionals to retrieve accurate and up-to-date scientific information efficiently.
 
+![Workflow](imgs/rag-framework.png "Diagram showing the RAG Framework")
+
 The RAG framework aims to enhance Large Language Models (LLMs) by augmenting their input with domain-specific information retrieved from a vector database. By integrating the rich dataset of nutrigenetics abstracts annotated with MeSH terms, the RAG approach significantly improves the relevance and accuracy of the LLMs' responses. Here is a step-by-step guide on how to apply the RAG framework:
 
 #### Components:
 1. **Embeddings Model**:
-    - Use the General Text Embeddings (GTE) model to transform the source documents into vector representations. The GTE model is chosen for its superior performance in representing the semantic content of documents using multi-stage contrastive learning.
-    - Example:
-      ```python
-      from gte import GTE  # Hypothetical import for GTE
-      gte_model = GTE()
-      embeddings = gte_model.transform(documents)
-        ```
+   - Use the General Text Embeddings (GTE) model to transform the source documents into vector representations. The GTE model is chosen for its superior performance in representing the semantic content of documents using multi-stage contrastive learning.
+   - Example:
+     ```python
+     from gte import GTE  # Hypothetical import for GTE
+     gte_model = GTE()
+     embeddings = gte_model.transform(documents)
+       ```
 
 2. **Vector Database (VDB)**:
-    - Utilize Milvus for storing and retrieving the vector data. Milvus is selected for its optimized vector search functionality and supports integration via API.
-    - Example:
-      ```python
-      from pymilvus import connections, Collection
-      connections.connect(alias="default", host="localhost", port="19530")
+   - Utilize Milvus for storing and retrieving the vector data. Milvus is selected for its optimized vector search functionality and supports integration via API.
+   - Example:
+     ```python
+     from pymilvus import connections, Collection
+     connections.connect(alias="default", host="localhost", port="19530")
 
-      # Create a Milvus collection
-      collection = Collection("nutrigenetics_collection")
-      collection.load()
-      ```
+     # Create a Milvus collection
+     collection = Collection("nutrigenetics_collection")
+     collection.load()
+     ```
 
 3. **Query Processing**:
    - Process the query from the user by converting it into a vector using the same Embeddings Model. Retrieve relevant documents from the vector database based on this embedding.
